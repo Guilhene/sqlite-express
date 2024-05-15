@@ -19,6 +19,10 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.NUMBER,
     allowNull:false,
   },
+  genero: {
+    type: DataTypes.ENUM('M', 'f'),
+    allowNull: false,
+  },
 });
 Supermercado.hasMany(Produto);
 Produto.belongsTo(Supermercado);

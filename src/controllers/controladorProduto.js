@@ -3,14 +3,14 @@ const Supermercado = require('../models/modeloSupermercado')
 const criarProduto = async (req, res) => {
   try {
     const idSupermercado = req.body.idSupermercado;
-    const { nome, preco, descricao, estoque } = req.body;
+    const { nome, preco, descricao, estoque, genero } = req.body;
 
     if (!idSupermercado) throw new Error('ID do supermercado é obrigatório');
 
     const supermercado = await Supermercado.findByPk(idSupermercado);
     if (!supermercado) throw new Error('Supermercado não encontrado');
 
-    const novoProduto = await Produto.create({ nome, preco, descricao, estoque, SupermercadoId: idSupermercado });
+    const novoProduto = await Produto.create({ nome, preco, descricao, estoque, genero, SupermercadoId: idSupermercado });
 
     res.status(201).json(novoProduto);
   } catch (error) {
