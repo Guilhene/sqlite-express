@@ -48,11 +48,11 @@ const editProduto = async (req, res) => {
     if(!produto) throw new Error("Produto nao encontrado");
 
     produto.update({
-      nome: novoNome,
-      preco: novoPreco,
-      descricao: novoDescricao,
-      estoque: novoEstoque,
-      genero: novoGenero
+      nome: novoNome || produto.nome,
+      preco: novoPreco || produto.preco,
+      descricao: novoDescricao || produto.descricao,
+      estoque: novoEstoque || produto.estoque,
+      genero: novoGenero || produto.genero
     });
 
     res.status(201).json(produto);
