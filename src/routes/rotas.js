@@ -11,6 +11,7 @@ router.post('/produtos', controladorProduto.criarProduto);
 router.get('/produtos', controladorProduto.obterProdutos);
 router.get('/produtos/:produtoId', controladorProduto.obterProduto);
 router.delete('/produtos', controladorProduto.apagarProduto);
+router.put('/produtos', controladorProduto.editProduto);
 
 router.post('/supermercados', controladorSupermercado.criarSupermercado);
 router.get('/supermercados', controladorSupermercado.obterSupermercados);

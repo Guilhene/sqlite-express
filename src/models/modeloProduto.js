@@ -19,8 +19,8 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.NUMBER,
     allowNull:false,
   },
-  genero: {
-    type: DataTypes.ENUM('M', 'f'),
+  tamanho: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });

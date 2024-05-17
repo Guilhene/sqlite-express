@@ -39,6 +39,28 @@ const apagarProduto = async (req, res) => {
   }
 }
 
+const editProduto = async (req, res) => {
+  try{
+    const { idPproduto, novoNome, novoPreco, novoDescricao, novoEstoque, novoGenero } = req.body;
+    if(!idPproduto && !novoNome && !novoPreco && !novoDescricao && !novoEstoque && !novoGenero)throw new Error("Os campos estam vazio");
+
+    const produto = await Produto.findByPk(idPproduto);
+    if(!produto) throw new Error("Produto nao encontrado");
+
+    produto.update({
+      nome: novoNome,
+      preco: novoPreco,
+      descricao: novoDescricao,
+      estoque: novoEstoque,
+      genero: novoGenero
+    });
+
+    res.status(201).json(produto);
+  }catch (error){
+    res.status(400).json({ error: error.message});
+  }
+}
+
 const obterProduto = async (req, res) => {
   try {
     const idPproduto = req.params.produtoId;
@@ -63,4 +85,4 @@ const obterProdutos = async (req, res) => {
   }
 };
 
-module.exports = { criarProduto , obterProdutos, obterProduto, apagarProduto}
+module.exports = { criarProduto , obterProdutos, obterProduto, apagarProduto, editProduto}
