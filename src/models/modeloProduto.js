@@ -23,6 +23,10 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  genero: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 Supermercado.hasMany(Produto);
 Produto.belongsTo(Supermercado);
