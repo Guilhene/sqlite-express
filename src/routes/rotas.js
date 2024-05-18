@@ -4,8 +4,7 @@ const controladorProduto = require('../controllers/controladorProduto');
 const controladorSupermercado = require('../controllers/controladorSupermercado');
 const controladorCarrinhoCompras = require('../controllers/controladorCarrinhoCompras');
 
-router.post('/carrinhoCompras', controladorCarrinhoCompras.criarCarrinhoCompras);
-
+// router.post('/carrinhoCompras', controladorCarrinhoCompras.criarCarrinhoCompras);
 
 router.post('/produtos', controladorProduto.criarProduto);
 router.get('/produtos', controladorProduto.obterProdutos);

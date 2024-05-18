@@ -86,4 +86,4 @@ const obterProdutos = async (req, res) => {
   }
 };
 
-module.exports = { criarProduto , obterProdutos, obterProduto, apagarProduto, editProduto}
+module.exports = { criarProduto , obterProdutos, obterProduto, apagarProduto, editProduto }
