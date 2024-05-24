@@ -3,8 +3,8 @@ const Supermercado = require('../models/modeloSupermercado')
 
 const criarProduto = async (req, res) => {
   try {
-    const { nome, preco, descricao, estoque, tamanho, genero, imagem } = req.body;
-    const novoProduto = await Produto.create({ nome, preco, descricao, estoque, tamanho, genero, imagem });
+    const { nome, preco, descricao, estoque, tamanho, genero, secao, imagem } = req.body;
+    const novoProduto = await Produto.create({ nome, preco, descricao, estoque, tamanho, genero, secao, imagem });
 
     res.status(201).json(novoProduto);
   } catch (error) {
@@ -34,8 +34,8 @@ const apagarProduto = async (req, res) => {
 
 const editProduto = async (req, res) => {
   try{
-    const { idPproduto, novoNome, novoPreco, novoDescricao, novoEstoque, novoTamanho, novoGenero, novaImagem } = req.body;
-    if(!idPproduto && !novoNome && !novoPreco && !novoDescricao && !novoEstoque && !novoTamanho && !novoGenero && !novaImagem)throw new Error("Os campos estam vazio");
+    const { idPproduto, novoNome, novoPreco, novoDescricao, novoEstoque, novoTamanho, novoGenero, novoSecao, novaImagem } = req.body;
+    if(!idPproduto && !novoNome && !novoPreco && !novoDescricao && !novoEstoque && !novoTamanho && !novoGenero && !novoSecao && !novaImagem)throw new Error("Os campos estam vazio");
 
     const produto = await Produto.findByPk(idPproduto);
     if(!produto) throw new Error("Produto nao encontrado");
@@ -47,6 +47,7 @@ const editProduto = async (req, res) => {
       estoque: novoEstoque || produto.estoque,
       tamanho: novoTamanho || produto.tamanho,
       genero: novoGenero || produto.genero,
+      secao: novoSecao || produto.secao,
       imagem: novaImagem || produto.imagem
     });
 
