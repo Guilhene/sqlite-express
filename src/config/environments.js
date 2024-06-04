@@ -7,7 +7,7 @@ const environments = {
       DB_LOGGING: false,
     },
     production: {
-      DB_DIALECT: 'mysql',
+      DB_DIALECT: process.env.DB_DIALECT ||'mysql',
       DB_HOST: process.env.DB_HOST || 'seu-host',
       DB_USERNAME: process.env.DB_USERNAME || 'seu-usuario',
       DB_PASSWORD: process.env.DB_PASSWORD || 'sua-senha',
